@@ -1,0 +1,684 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>깊게 생각하는 개발자 권동한입니다.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="672a106a-1a4c-4002-8464-7815d6ea3f9e" class="page sans"><header><h1 class="page-title">깊게 생각하는 개발자 권동한입니다.</h1><table class="properties"><tbody></tbody></table></header><div class="page-body"><p id="2bb29061-36ed-4194-9dd0-8da754e06589" class="">
+</p><p id="e572b6c6-9abb-49e4-9956-c72144748865" class="">
+</p><p id="7b23147d-c2cd-4036-b2bb-27a610b1a7d3" class="">
+</p><h1 id="0f055edd-f8b4-41d3-83cc-623471c1401f" class="">🤗<mark class="highlight-teal">Profile</mark></h1><hr id="822dbd8d-359e-4aac-884e-e9734283ecd9"/><div id="a48ddf9a-2de2-42e0-b49f-fc81e163ea8c" class="column-list"><div id="37d8d27f-cfc6-46df-b97b-a1446ee8f897" style="width:18.75%" class="column"><figure id="4a5ca24e-db4f-4822-9851-03906bb97a98" class="image"><img src="https://i.ibb.co/THbmvpt/951011.png" alt="951011" border="0" /></figure></div><div id="74fb8239-1bdf-4d22-a3bf-1f6e3346233b" style="width:81.25%" class="column"><p id="cf5f0b86-ef41-497a-a5ab-131b93463ed6" class="">
+</p><ul id="2ff1208c-7614-4af4-ba7d-465b2e5d281a" class="bulleted-list"><li style="list-style-type:disc"><strong>권동한</strong> / 1995년 (27세) / 남</li></ul><ul id="1ecd49e9-6baf-4afa-a4a1-90b676f3caf0" class="bulleted-list"><li style="list-style-type:disc">Contact : 010-5112-4560 / rnjsehdgks01@naver.com</li></ul><ul id="160b4ea7-a37d-4e03-8a55-6524f00a46f3" class="bulleted-list"><li style="list-style-type:disc">Address : 서울시 중랑구 용마산로 391(02201)</li></ul></div></div><h3 id="a258b48e-5cbd-403e-bde1-0c561598cb55" class="">Education</h3><div id="a882b9a0-be43-4533-a814-688ba2438a0c" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>재학기간</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>졸업여부</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>학교명</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>전공</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>학점</th></tr></thead><tbody><tr id="6b2750fc-9c01-4fd5-b229-08d2becdfc3f"><td class="cell-title">2014.03 ~ 2021.02</a></td><td class="cell-i_Sz">졸업</td><td class="cell-LZKJ">한라대학교(강원)</td><td class="cell-X}YK">컴퓨터공학</td><td class="cell-dwWy">3.75/4.5</td></tr></tbody></table></div><p id="9d3f6034-361d-45b6-8f2e-42dfe09483aa" class="">
+</p><h3 id="7b51c408-2f63-464e-8e61-20a6fc3ec744" class="">Licenses</h3><div id="615dbe6b-ae46-4fb0-bdb1-4b59210f65ec" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>취득일</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>자격명</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>발행처</th></tr></thead><tbody><tr id="871f084c-9e9d-40f2-aa46-8509623b3918"><td class="cell-title">2021.06</a></td><td class="cell-i_Sz">정보처리기사</td><td class="cell-LZKJ">한국산업인력공단</td></tr></tbody></table></div><p id="2e9666c0-55d5-4ff9-a35c-295a380f285c" class="">
+</p><h1 id="bb1b5ec7-aff1-433b-88ca-e2b131e6e33f" class="">🧐<mark class="highlight-teal">About Me</mark></h1><hr id="23085849-1395-43c6-9f2a-15857c8523d2"/><div id="559ba51f-2230-4d76-9af8-ec847101453a" class="column-list"><div id="3376231f-696b-4993-8060-1f791c0d6c4d" style="width:43.75%" class="column"><h3 id="c9db5198-7b93-4a79-95eb-26a2a6928a3f" class="">Introduction</h3></div><div id="72d4190c-5395-4bf1-8f22-ffa120c3286a" style="width:100%" class="column"><ul id="f84549f7-913e-4ad1-81c2-3be862d83e6b" class="bulleted-list"><li style="list-style-type:disc"><strong>안녕하십니까! 신입 개발자 권동한입니다.</strong></li></ul><ul id="2f6088e2-7307-40d1-8325-167062a6c87f" class="bulleted-list"><li style="list-style-type:disc"><strong>다양한 프로젝트를 통해 경험을 쌓으며 도서와 강의를 통해 깊이를 더하는 학습을 진행 중입니다.</strong></li></ul><ul id="b1c40be4-e8bc-4415-ad7d-42731d7875ed" class="bulleted-list"><li style="list-style-type:disc"><strong>작성하고 있는 코드가 효율적인지, 최적의 구조인지에 대한 고민을 습관적으로 합니다.</strong></li></ul></div></div><div id="aa08fa12-7b3d-4a0a-aa13-c51ff08020ad" class="column-list"><div id="b1641762-b9e5-4c8c-8904-6040ad2efd84" style="width:43.75%" class="column"><h3 id="1bddb6ba-fae1-40e7-9282-ba3e4ac07a14" class="">Git</h3></div><div id="65432791-4add-42c9-8b81-c69e15c8fc6f" style="width:100%" class="column"><ul id="11e30f5a-19cc-49a0-8465-8c7b864a17e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Github - </strong><strong><a href="https://github.com/rnjsehdgks01" target="_blank">https://github.com/rnjsehdgks01</a></strong></li></ul></div></div><p id="39ddca26-eb0e-45a6-bb32-bb7b4fc1e591" class="">
+</p><p id="0f54b0e2-cb76-41f9-8b0b-0b07bdbdd277" class="">
+</p><h1 id="689488b1-2a3f-41aa-833e-c9c8bb9a7ccb" class="">🛠️<mark class="highlight-teal">Skills</mark></h1><hr id="0cb38255-bc8c-4cff-b693-8fb79bf18a7a"/><div id="27bcc698-a6d1-4f6a-b56c-812e8c022da4" class="column-list"><div id="2b7ec5d6-962e-426e-a535-9e412de041eb" style="width:43.75%" class="column"><h3 id="1dc29907-7469-40ab-89df-207867e52c26" class="">Backend</h3></div><div id="cba5671e-8ed6-45d8-8069-8420fa1c6486" style="width:100%" class="column"><ul id="f6311464-8ffc-4e02-8809-2b6901e64d22" class="bulleted-list"><li style="list-style-type:disc"><strong>Java</strong></li></ul><ul id="efb03132-2172-4ded-9609-d1e1ec5a72ef" class="bulleted-list"><li style="list-style-type:disc"><strong>Spring Boot</strong></li></ul></div></div><div id="cc67779a-2a7a-4333-835d-b78fc8d6cc51" class="column-list"><div id="9906465b-4914-4207-8430-04111ff0a94d" style="width:43.75%" class="column"><h3 id="553f9995-d6f6-4ec7-ba76-10c02bc7fe4d" class="">Frontend</h3></div><div id="c2ee37aa-fe51-490c-b7c7-2e82b477d650" style="width:100%" class="column"><ul id="8bb5770f-3efa-4d81-8c5d-f60547755274" class="bulleted-list"><li style="list-style-type:disc"><strong>HTML</strong></li></ul></div></div><p id="874b3b6e-3093-46b2-850a-083ca338bf0a" class="">
+</p><p id="58d6d9e0-3e9a-4e7a-85e0-1d3c4bafbc0d" class="">
+</p><h1 id="31b4f1b8-535f-48f2-9625-d502a1a9baf3" class="">🚶‍♂️<mark class="highlight-teal">Personal Projects</mark></h1><hr id="1bb5d4e1-4632-4165-aaf7-af3bb6a1312e"/><div id="3bdc3d33-6512-4e0d-9315-be09abfa21cc" class="column-list"><div id="63b03ff6-731b-4d40-84ef-698c757a85da" style="width:50%" class="column"><h2 id="117e1761-efab-4922-b007-1855a2014411" class="">JAVA기반
+바운스볼 게임 앱</h2><p id="97d76cf3-6fa2-4946-9a71-833a3651ae72" class=""><a href="https://krrkrrr.tistory.com/4" target="_blank">https://krrkrrr.tistory.com/4</a></p><p id="6d0e0e1d-a7eb-472e-a405-00a026dec8d4" class="">2019.11</p></div><div id="814c9173-457f-4cf5-a1ad-5e56cc21164d" style="width:93.75%" class="column"><ul id="2f8fe70a-afda-49e3-8667-84e7820327a9" class="bulleted-list"><li style="list-style-type:disc"><strong>단순히 좌, 우 화면 터치를 이용해  이동하며 결승점까지
+이동하는 것을 목표로 하는 게임</strong></li></ul><ul id="71329b96-7b01-404e-85bb-4c580e2e724b" class="bulleted-list"><li style="list-style-type:disc"><strong>충돌 알고리즘의 효율성에 대해 집중하여 구현</strong></li></ul></div></div><p id="79539729-57ad-4759-a7ce-dca24ec42ed6" class="">
+</p><p id="8e5a9ef0-bc65-416c-9745-121778878361" class="">
+</p><div id="f4a46364-97d3-4923-9d48-cb13742f7b7d" class="column-list"><div id="956818b0-22a1-4830-8507-f6cae060e08f" style="width:50%" class="column"><h2 id="847ce279-e60d-42d0-9ee8-9586f1cdfef8" class="">웹 게시판</h2><p id="9cb9aee5-dc1f-47de-b596-b94127e0543f" class=""><a href="http://ec2-13-125-9-23.ap-northeast-2.compute.amazonaws.com/" target="_blank">http://ec2-13-125-9-23.ap-northeast-2.compute.amazonaws.com/</a></p><p id="824cda29-14b2-4c75-a9d9-a8697586a9cb" class="">2021.03~2021.04</p></div><div id="5b53f237-32b4-4618-8e4f-3ada4268e529" style="width:93.75%" class="column"><ul id="21b160fe-7ee2-4af9-b5c5-07999305e9ee" class="bulleted-list"><li style="list-style-type:disc"><strong>게시판의 기본적인 기능을 구현한 웹</strong></li></ul><ul id="52037097-94ed-49da-a60a-69ab8e9b8bdd" class="bulleted-list"><li style="list-style-type:disc"><strong>OAuth를 사용해 구글 로그인 기능 구현</strong></li></ul><ul id="61f068ba-47c8-46a9-a95a-b65f3881741f" class="bulleted-list"><li style="list-style-type:disc"><strong>게시글 등록/삭제/수정, 페이징 기능 구현</strong></li></ul><ul id="321561e9-979b-48d3-b78f-de36e61e494e" class="bulleted-list"><li style="list-style-type:disc"><strong>AWS EC2, RDS, S3, CodeDeploy와 TravisCI, NGINX를
+사용해 무중단 CD/CI 자동화 환경 구축</strong></li></ul></div></div><p id="8559683a-1a41-478c-974c-c2961dd6954e" class="">
+</p><p id="7d605645-9594-4974-9910-5c8f4ef81f88" class="">
+</p><div id="2b88f510-cff8-44d5-8df2-11d89e9db3ea" class="column-list"><div id="19977563-954f-4d7d-a2bd-d20ef153bba8" style="width:50%" class="column"><h2 id="83050309-16b6-4a01-baaa-e9af2ea7d8df" class="">근태 기록 대조
+프로그램</h2><p id="ca3b9c97-5f35-4213-b712-8522c2433663" class="">2021.06</p></div><div id="10a87a9d-bfdf-4d6d-95bd-92be1b73fd80" style="width:93.75%" class="column"><ul id="d78fa931-0eb0-459c-a11a-5a9df616ddb0" class="bulleted-list"><li style="list-style-type:disc"><strong>서명 출석과 지문 출석 시스템에 기록된 출석 정보를
+대조해 수작업 시간을 줄이는 프로그램</strong></li></ul><ul id="cc931c81-e7cd-4330-b162-058ef128bc1c" class="bulleted-list"><li style="list-style-type:disc"><strong>한 기업의 회계 업무를 돕기 위해 개발</strong></li></ul><ul id="0fceb4e6-a9ff-48db-a779-f823228dd373" class="bulleted-list"><li style="list-style-type:disc"><strong>평균 30분 이상 걸리는 작업을 5분 이내로 단축</strong></li></ul><ul id="dd9582f7-187e-47fb-938c-53c81af137c3" class="bulleted-list"><li style="list-style-type:disc"><strong>POI 라이브러리를 활용해 엑셀에 저장된 출석 정보를
+정리 후 저장</strong></li></ul></div></div><p id="1c35bec0-fd63-4953-844d-bea0e5f001c0" class="">
+</p><h1 id="a88569fb-a87a-41ae-95af-054aa348ffe9" class="">🤼<mark class="highlight-teal">Team Projects</mark></h1><hr id="db81347e-0329-4731-ad5b-9cea3a619a23"/><div id="22e3b420-25eb-4c26-91ee-357602e39fc0" class="column-list"><div id="c0aab871-f4f8-44e3-9cb3-17218d424cce" style="width:50%" class="column"><h2 id="b80be32b-c670-4cd8-8566-76f5c8d6b6a6" class="">MFC를 활용한
+도서관리 프로그램</h2><p id="351de268-6b13-4cbf-b7e9-7f5794cb2f1a" class=""><a href="https://krrkrrr.tistory.com/2" target="_blank">https://krrkrrr.tistory.com/2</a></p><p id="a18dfde7-75a5-44ba-a16d-0ed4d9fd4a0e" class="">2019.06</p></div><div id="36c7a3d7-fc9f-454c-b856-658ae7e9bdc2" style="width:93.75%" class="column"><ul id="03ec0bb5-3b49-4624-858a-c8e16324e1f7" class="bulleted-list"><li style="list-style-type:disc"><strong>도서 등록/대여/반납, 회원 등록/관리 기능을 가진
+프로그램</strong></li></ul><ul id="8ed60afc-c0ee-44e4-b2c1-dd6d1f4aa3b0" class="bulleted-list"><li style="list-style-type:disc"><strong>다양한 예외 상황을 고려한 테스트 케이스 작성을 통해 안정성 확보</strong></li></ul><ul id="408b4173-071d-4ad8-9d84-38a22c17b1e4" class="bulleted-list"><li style="list-style-type:disc"><strong>연체 정보/목록 등의 필수 기능을 편의성을 고려해 구현</strong></li></ul></div></div><p id="e4264bc6-d476-4dd5-93aa-4de4da779169" class="">
+</p><p id="b0c0cc82-c4e4-4a25-9f9e-a733b15730b5" class="">
+</p><div id="9b144194-68d8-4ee1-b361-0bb7bd4df536" class="column-list"><div id="2264093e-fad7-48ac-a2ea-444494b31e98" style="width:50%" class="column"><h2 id="24057f34-81e2-4232-8b00-171996b38bf3" class="">JAVA기반 소켓통신
+그림퀴즈 게임</h2><p id="8106aaf0-df1b-4c52-a5bb-63ad0b5f32b4" class=""><a href="https://krrkrrr.tistory.com/3" target="_blank">https://krrkrrr.tistory.com/3</a></p><p id="6d3d7db5-cae5-49b8-8983-b0619605cd4c" class="">2019.11</p></div><div id="db114802-d5f0-482c-af2c-fd212e2bef26" style="width:93.75%" class="column"><ul id="0216a5cf-1119-4dd2-8515-6b35b0954d80" class="bulleted-list"><li style="list-style-type:disc"><strong>4인까지 함께 게임이 가능하며 같은 방에 입장한
+유저들끼리 한 사람씩 키워드를 받아 그림으로 퀴즈를
+내며 맞추는 게임</strong></li></ul><ul id="99663d8a-ad4b-47fd-a57a-3203c6109061" class="bulleted-list"><li style="list-style-type:disc"><strong>클라이언트가 자신의 쓰레드에 서버로부터 받은 그림의 x, y 좌표를 스택으로 쌓으며 그려나가는 방식</strong></li></ul><p id="73db8853-f8a0-4e54-bc79-7ddefc73b988" class="">
+</p></div></div><p id="91639bc6-2e69-473b-a080-afbe73a9534d" class="">
+</p><div id="74c2e2f6-9bd3-41bb-87dc-f48734711988" class="column-list"><div id="1927df7c-6731-4c1d-ae87-c091f6cc576e" style="width:50%" class="column"><h2 id="c123c5da-1cda-442b-a109-02d949e22089" class="">비콘을 활용한
+버스 자동결제 앱</h2><p id="c72733d2-392d-4ffa-9626-bbcfa64e0ff6" class=""><a href="https://krrkrrr.tistory.com/5" target="_blank">https://krrkrrr.tistory.com/5</a></p><p id="91736269-19ce-468b-afd4-47b564d62127" class="">2020.06</p></div><div id="8bdeaa1d-6aea-4040-bc6d-160a9754e3b7" style="width:93.74999999999999%" class="column"><ul id="558d04e9-a285-4f31-a576-4edd627fad3b" class="bulleted-list"><li style="list-style-type:disc"><strong>비콘과 스마트폰의 거리를 측정하여 일정 거리 이내에
+접근 시 결제를 진행하는 앱</strong></li></ul><ul id="80bbede1-d941-40a6-9cea-1ff40eb4a28b" class="bulleted-list"><li style="list-style-type:disc"><strong>UI를 제외한 전반적인 기능 구현을 담당</strong></li></ul><ul id="126c313b-4c58-48d4-bec1-c71cd9f502b7" class="bulleted-list"><li style="list-style-type:disc"><strong>Firebase를 사용해 버스 정보, 사용자 정보를 저장</strong></li></ul><ul id="38dc1b78-f878-444f-ba16-c227614e8da0" class="bulleted-list"><li style="list-style-type:disc"><strong>비콘의 UUID를 Firebase에 저장해둔 버스 고유 코드로
+설정해 결제 시 버스 식별</strong></li></ul><ul id="af0d8714-5017-417f-84e1-585a11a76324" class="bulleted-list"><li style="list-style-type:disc"><strong>환승 기능 구현</strong></li></ul><p id="35ae95f8-abfc-41af-ab70-ecc06f5a8454" class="">
+</p></div></div><p id="187a3f51-2fc8-4bd2-b5a8-e72c4f7ccd87" class="">
+</p><div id="5a2603bc-84da-4ba0-9fc3-02c78c648d7b" class="column-list"><div id="3159a3a5-6507-4863-a37f-741095efbadc" style="width:50%" class="column"><h2 id="cd47f81c-cab9-435d-8778-46ed7c11b757" class="">웹 기반
+이사 서비스 앱(상용)
+1호차</h2><p id="23321e83-f017-4337-8e5f-877bd94ccd3d" class="">2020.07~2020.11</p></div><div id="e3cefee3-9850-4b7a-a0e0-2c2c820a5b0d" style="width:93.75%" class="column"><ul id="1845effd-0d21-4fd7-8ae6-fa8cd72d1649" class="bulleted-list"><li style="list-style-type:disc"><strong>이사짐 이동 견적 비교 및  용달 서비스 제공 앱</strong></li></ul><ul id="3b3fbc52-431c-4c26-b228-9542007167cb" class="bulleted-list"><li style="list-style-type:disc"><strong>하이브리드 앱</strong></li></ul><ul id="bc212330-422a-489e-8911-8a50ef354721" class="bulleted-list"><li style="list-style-type:disc"><strong>FCM 사용</strong></li></ul><ul id="7423625a-7fbb-4307-9b7b-03d958b33e0e" class="bulleted-list"><li style="list-style-type:disc"><strong>알람 보관함 구현</strong></li></ul><ul id="28690211-7820-4249-90f0-5cdc1b2106f7" class="bulleted-list"><li style="list-style-type:disc"><strong>반응성 향상을 위해 인트로 노출과 동시에
+Web View 로딩</strong></li></ul><p id="7dd42a36-0369-49ae-be92-2a240bf6adee" class="">
+</p></div></div><h1 id="119d6c0a-1178-4426-a9a0-4ed564c773d0" class="">🙋🏻‍♂️Introduce</h1><hr id="0b1663b5-3d50-4f9d-91cb-a55b30b35672"/><h3 id="bee5016c-b0d9-4df7-bdc8-c0f12da20dbf" class=""><strong>[문제 발생과 해결 과정]</strong></h3><p id="83e5f53b-3701-4659-806a-382d422242b2" class="">팀 프로젝트로 Android 앱을 개발하며 FirebaseMessaging API를 이용해 알람을 구현하였습니다.
+먼저 알람 보관함 Activity를 구현했고 이후 알람이 도착했을 때 실시간으로 재조회되는 기능을
+구현하던 중 아래와 같은 의존성 주입 문제가 발생하였습니다.
+메세지를 수신하는 클래스 생성 시 메세지를 재조회하는 클래스의 인스턴스를 주입하려고 했으나 해당 클래스를 인위적으로 생성하여 사용할 수 없어서 실패하였습니다. 이후 리스너를 추가하는
+등의 시도를 하였지만 같은 이유로 실패하였습니다. 또한 재조회 메소드를 static으로 구현하려고
+시도하였는데 연관된 모든 필드와 메소드를 함께 static으로 선언해 줘야 했기 때문에 비효율적이라 느꼈고 사용하지 않을 때의 메모리 낭비 문제도 걱정되어 취소하였습니다.
+계속되는 시도 끝에 이러한 문제를 해결하지 못하는 이유가 객체지향에 대한 이해도의 부족이라는 생각이 들었습니다. 그래서 객체지향과 디자인 패턴에 대한 도서를 구매해 참고하면서 현재 상황에 대입하며 공부해 나아갔고 그중 싱글턴 패턴이 문제 상황 해결에 적합하다고 여겨졌습니다. 곧바로
+코드에 적용했고 알림 보관함 Activity를 생성할 때 초기화하며 닫을 때는 null을 할당해 기존의
+문제와 동시에 메모리 낭비 문제도 해결하였습니다</p><p id="d7429a6d-debf-463a-82f1-6aca549a5906" class="">
+</p></div></article></body></html>
